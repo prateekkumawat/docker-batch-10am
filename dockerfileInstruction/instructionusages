@@ -1,0 +1,7 @@
+from :::: collect your base image on that you want to deploy code or coustmize 
+COPY :::: copy collect your resource from base to image 
+ADD  :::: do same as copy ; if you download from link only add can do 
+EXPOSE :::: define port no 
+RUN ::: use for command 
+WORKDIR :::: default path set on container
+ARG ::: used for pass variable values in dockerfile

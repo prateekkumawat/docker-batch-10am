@@ -1,0 +1,24 @@
+# base image for build custom image 
+FROM redhat/ubi10:latest
+
+# USE RUN Instructio install package
+RUN yum install httpd -y 
+
+# workdir use 
+WORKDIR /var/www/html
+
+# COPY Content in 
+ADD index.html /var/www/html/
+
+# add use for download from links
+ADD https://raw.githubusercontent.com/mishti30/jenkins-project/refs/heads/main/src/about.html  /var/www/html/
+
+# extract tar from url and dump in opt 
+ADD --unpack=true https://github.com/derailed/k9s/releases/download/v0.50.6/k9s_Linux_amd64.tar.gz /opt
+
+# start httpd service
+RUN echo "/usr/sbin/httpd -k start &> /dev/null" >> /root/.bashrc
+
+# EXPOSE use port 
+EXPOSE 80
+EXPOSE 82

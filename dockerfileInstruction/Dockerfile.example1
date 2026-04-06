@@ -1,0 +1,15 @@
+# base image for build custom image 
+FROM redhat/ubi10:latest
+
+# USE RUN Instructio install package
+RUN yum install httpd -y 
+
+# COPY Content in 
+COPY index.html /var/www/html/
+
+# start httpd service
+RUN echo "/usr/sbin/httpd -k start &> /dev/null" >> /root/.bashrc
+
+# EXPOSE use port 
+EXPOSE 80
+EXPOSE 82
