@@ -1,0 +1,47 @@
+services:
+  postgresql:
+    image: docker.bintray.io/postgres:9.6.11
+    container_name: postgresql
+    ports:
+     - 5432:5432
+    environment:
+     - POSTGRES_DB=artifactory
+     - POSTGRES_USER=artifactory
+     - POSTGRES_PASSWORD=password
+    volumes:
+     - postgresqlvol:/var/lib/postgresql/data
+    restart: always
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 32000
+        hard: 40000
+
+  artifactory:
+    image: docker.bintray.io/jfrog/artifactory-oss:6.23.13
+    container_name: artifactory
+    ports:
+     - 8082:8081
+    depends_on:
+     - postgresql
+    links:
+     - postgresql
+    volumes:
+     - artifactoryvol:/var/opt/jfrog/artifactory
+    environment:
+     - DB_TYPE=postgresql
+     - DB_USER=artifactory
+     - DB_PASSWORD=password
+    restart: always
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 32000
+        hard: 40000
+
+volumes:
+  postgresqlvol:
+  artifactoryvol:
+  
+
+# jenkins nexus sonar jfrog promethesus grafana mysql phpmyadmin pgsql pgadmin mongodb redis redisclient rabbitmq rabbitmq-client
