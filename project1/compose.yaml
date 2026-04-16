@@ -1,0 +1,8 @@
+services:
+  webapp:
+    container_name: webapp
+    build:
+      dockerfile: Dockerfile.redhat
+    ports:
+    - 82:80
+    command: ["/bin/bash", "-c", "sleep 1000"]
