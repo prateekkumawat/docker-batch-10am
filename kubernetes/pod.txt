@@ -1,0 +1,27 @@
+kubernetes is supportd : 
+- impreative method :-> basic its based on command ; used for manage and troubleshott purposes 
+- Declerative method :-> based of yaml that uses for deployment and release 
+
+
+
+- Pods are the smallest deployable units of computing that you can create and manage in Kubernetes.
+- pod is maintain single or multiple containers, that responsible for provide network, shared liberies 
+  and security contexts and flags to the containers. 
+- pod is responisbles for manage pods 
+- if you want to create multiple replicas of containers for manage worksload so pod will not be helpful.
+- pod is manage single contianers workload. 
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  namespace: nginx
+spec:
+  containers:
+  - name: myapp
+    image: nginx:latest
+    ports:
+      - containerPort: 80
+
+# kubectl run myapp --image=nginx:latest --port=80 --namespace=nginx 

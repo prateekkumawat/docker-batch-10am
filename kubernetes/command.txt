@@ -1,0 +1,27 @@
+# get nodes 
+kubectl get node 
+kubectl describe node node_name 
+
+# get pods 
+kubectl get pod -A
+kubectl describe pod pod_name -n namespace
+kubectl get pod -n kube-system 
+kubectl run nginx --image=nginx:latest --port=80  --namespace namespace  
+kubectl delete pod nginx -n namespace_name
+
+# namespace command 
+kubectl get namespace 
+kubectl create namespace name 
+kubectl delete namespace name 
+
+# basic command of kubectl 
+kubectl logs podname -n namespace
+
+# k9s tools installation 
+ https://github.com/derailed/k9s
+
+ curl -sS https://webinstall.dev/k9s | bash 
+
+ k9s is your command
+
+ : + shift ---- command mode 
