@@ -1,0 +1,6 @@
+- create a pod using command run and application of basic hello page in nginx containers. 
+- create a dockerfile download source code https://templatemo.com/download/templatemo_562_space_dynamic
+from link and setup image push to your dockerhub and create a container using this image in kubernetes and 
+expose form NodePort. 
+- create a multi-pod python and redis. and expose and accessible using clusterip
+- create a ubuntu base image setup a webpage using dockerfile and using image create a pod and accessible using NodePort
