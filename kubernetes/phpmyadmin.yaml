@@ -30,7 +30,7 @@ metadata:
   name: phpmyadmin
 spec:
   selector:
-    app: phpmayadmin
+    app: phpmyadmin
   ports:
   - port: 80
     targetPort: 80
