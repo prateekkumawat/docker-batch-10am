@@ -10,11 +10,11 @@ spec:
     image: mysql:latest
     resources:
       requests:
-        memory: "150Mi"
-        cpu: "250m"
+        memory: "450Mi"
+        cpu: "750m"
       limits:
-        memory: "200Mi"
-        cpu: "500m"
+        memory: "600Mi"
+        cpu: "900m"
     ports:
     - containerPort: 3306
     env:
