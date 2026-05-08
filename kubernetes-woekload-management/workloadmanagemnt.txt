@@ -1,0 +1,29 @@
+# https://kubernetes.io/docs/concepts/workloads/
+
+- workload is a application that running on kubernetes. 
+- for manageing worload of application uses multiple services and resoures like pod , service, storage etc. 
+- kubernetes pods have is own ligecycle like pod is running any failure or upgradation was there in this 
+  case it will delete fialure pod and create a new pod once it will become healthy it will mangae workload. 
+
+  for pod manaagement purpose we use multiple workload management process. 
+
+  1. deployment :::: 
+    - A Deployment manages a set of Pods to run an application workload, usually one that doesn't maintain state.
+    -  deployment run no of deseries pods
+    - if you want to upgrade image allow upgradation. 
+    -  rolling roullout and restart provide 
+    - most of application pod manage using deployment
+
+  2. statefulset ::: 
+    - statefulset manage state of applications like database dns cluster application
+    - Manages the deployment and scaling of a set of Pods, and provides guarantees about the ordering and uniqueness of these Pods.
+  3. replicaset :::: create no of  replicas ; deployment uses of this for manage desire no of pod
+  4. daemonsets :::: 
+     - ensure that pod is running on every node
+     - for network storage logs or agent deployment pusprose used
+     - if node add daemonsets add pod if node remove then remove pod. 
+      
+  5. replicacontroller 
+  6. jobs
+  7. cronjobs
+
