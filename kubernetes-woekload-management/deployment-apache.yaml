@@ -28,7 +28,7 @@ metadata:
   name: myapp-service
 spec:
   selector:
-    app: webapp
+    app: myapp
   ports:
   - port: 8000
     targetPort: 80
