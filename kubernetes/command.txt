@@ -17,6 +17,11 @@ kubectl delete namespace name
 # basic command of kubectl 
 kubectl logs podname -n namespace
 
+# deployment create command 
+kubectl create deployment name --image=nginx --port=80 
+kubectl expose deployment name --type=Nodeport/ClusterIp 
+
+
 # k9s tools installation 
  https://github.com/derailed/k9s
 
@@ -25,3 +30,4 @@ kubectl logs podname -n namespace
  k9s is your command
 
  : + shift ---- command mode 
+
