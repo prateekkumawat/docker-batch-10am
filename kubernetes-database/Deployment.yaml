@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-app
+  namespace: database 
+  labels: 
+    app: mysql    
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:8.0
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "700Mi"
+          limits:
+            memory: "900Mi"
+            cpu: "700m"
+        ports:
+        - containerPort: 3306
+          name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: intial-admin-password
+              key: password
+        - name: MYSQL_DATABASE
+          value: "userdb"
+        - name: MYSQL_USER  
+          valueFrom:
+            secretKeyRef:
+              name: user-access-secret
+              key: user
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: user-access-secret
+              key: password
+        

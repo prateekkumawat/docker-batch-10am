@@ -1,0 +1,9 @@
+currently you are working as a kubernetes admin in contoso company. your company require a database server on 
+kubernetes. deploy this in namespace database 
+image: mysql:8.0 
+ports: 3306 
+accessible: ClusterIp 
+username and password must be secure 
+create a database userdb 
+
+for production resource manage apply LimitRanges on your database namespace. 
