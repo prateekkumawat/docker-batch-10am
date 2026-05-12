@@ -21,6 +21,11 @@ kubectl logs podname -n namespace
 kubectl create deployment name --image=nginx --port=80 
 kubectl expose deployment name --type=Nodeport/ClusterIp 
 
+# setup and check LimitRanges
+kubectl get limitranges -A
+kubectl describe  limitranges -n database
+kubectl delete  limitranges  database-limit-range -n database
+
 
 # k9s tools installation 
  https://github.com/derailed/k9s
