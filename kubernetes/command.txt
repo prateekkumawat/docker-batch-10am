@@ -26,6 +26,9 @@ kubectl get limitranges -A
 kubectl describe  limitranges -n database
 kubectl delete  limitranges  database-limit-range -n database
 
+# create secret 
+echo -n redhat | base64    // encode 
+echo -n encodehas | base64 -d //decode 
 
 # k9s tools installation 
  https://github.com/derailed/k9s

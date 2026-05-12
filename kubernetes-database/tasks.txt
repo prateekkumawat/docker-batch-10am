@@ -7,3 +7,5 @@ username and password must be secure
 create a database userdb 
 
 for production resource manage apply LimitRanges on your database namespace. 
+
+setup a phpmyadmin for access your mysql database over web allow nodeport method 
