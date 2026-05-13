@@ -9,3 +9,23 @@ create a database userdb
 for production resource manage apply LimitRanges on your database namespace. 
 
 setup a phpmyadmin for access your mysql database over web allow nodeport method 
+
+
+currently you are working as a kubernetes admin in contoso company. your company require a database server on 
+kubernetes. deploy this in namespace database 
+image: postgres 
+ports: 5432 
+accessible: ClusterIp 
+username and password must be secure 
+create a database userdb 
+
+setup a phpmyadmin for access your pgsql database over web allow nodeport method 
+
+currently you are working as a kubernetes admin in contoso company. your company require a Nosql database server on 
+kubernetes. deploy this in namespace database 
+image: mongo 
+ports: 27017
+accessible: ClusterIp 
+username and password must be secure 
+
+setup a phpmyadmin for access your mongo-express database over web allow nodeport method
