@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-database
+  namespace: postgres
+  labels:
+    app: database
+spec:
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+      - name: postgers
+        image: postgres:latest
+        resources:
+          requests: 
+            memory: "100Mi"
+            cpu: "300m"
+          limits:
+            memory: "200Mi"
+            cpu: "600m"
+        ports:
+        - containerPort: 5432
+        env: 
+        - name: POSTGRES_PASSWORD
+          valueFrom: 
+            secretKeyRef: 
+              name: postgres-secret
+              key: password
+        - name: POSTGRES_DB
+          value: testdata      
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-database-svc
+  namespace: postgres
+spec:
+  selector:
+    app: database
+  type: ClusterIP  
+  ports:
+  - port: 5432
+    targetPort: 5432
