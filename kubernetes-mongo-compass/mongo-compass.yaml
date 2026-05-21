@@ -22,8 +22,8 @@ spec:
           value: mongoexpressuser 
         - name: ME_CONFIG_BASICAUTH_PASSWORD
           value: mongoexpresspass  
-        - name: ME_CONFIG_MONGODB_SERVER
-          value: mongo-svc
+        - name: ME_CONFIG_MONGODB_URL
+          value: "mongodb://mongo-svc:27017/"
         - name: ME_CONFIG_MONGODB_PORT
           value: "27017"
         - name: ME_CONFIG_MONGODB_ENABLE_ADMIN
