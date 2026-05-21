@@ -16,8 +16,12 @@ spec:
       - name: mongo-express
         image: mongo-express:latest
         env:
-        - name: ME_CONFIG_MONGODB_SERVER
-          value: mongo-svc.mongo.svc.cluster.local
+        - name: ME_CONFIG_BASICAUTH_ENABLED
+          value: "true"
+        - name: ME_CONFIG_BASICAUTH_USERNAME
+          value: mongoexpressuser 
+        - name: ME_CONFIG_BASICAUTH_PASSWORD
+          value: mongoexpresspass    
         - name: ME_CONFIG_MONGODB_PORT
           value: "27017"
         - name: ME_CONFIG_MONGODB_ENABLE_ADMIN
