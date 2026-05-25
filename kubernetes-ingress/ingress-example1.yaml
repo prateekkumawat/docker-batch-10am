@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: myapp1
   labels:
-    app.kubernetes.io/name: myapp1
+    app: myapp1
 spec:
   containers:
   - name: myapp1
@@ -20,7 +20,7 @@ kind: Pod
 metadata:
   name: myapp2
   labels:
-    app.kubernetes.io/name: myapp2
+    app: myapp2
 spec:
   containers:
   - name: myapp2
