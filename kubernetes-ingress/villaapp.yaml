@@ -46,6 +46,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /  
 spec:
+  ingressClassName: nginx
   rules:
   - host: villaapp.ocelottraining.com
     http:
