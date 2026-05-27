@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: villa-app
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: villaapp
+  namespace: villa-app
+  labels:
+    app: villaapp
+spec:
+  containers:
+  - name: villapp
+    image: prateekkumawat/villa:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: villa-app-svc
+  namespace: villa-app
+spec:
+  selector:
+    app: villaapp
+  ports:
+  - port: 80
+    targetPort: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: villaapp-ingress
+  namespace: villa-app
+  labels: 
+    app: villaapp
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /  
+spec:
+  rules:
+  - host: villaapp.ocelottraining.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: villa-app-svc 
+            port: 
+              number: 80
+
