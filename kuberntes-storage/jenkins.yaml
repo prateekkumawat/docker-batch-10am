@@ -79,7 +79,7 @@ spec:
               containerPort: 50000
           volumeMounts:
           - name: jenkins-data
-            mountPath: /var/lib/jenkins    
+            mountPath: /var/jenkins_home   
           livenessProbe:
             httpGet:
               path: "/login"
