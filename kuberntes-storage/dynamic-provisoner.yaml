@@ -25,12 +25,14 @@ spec:
       - "3600"
     volumeMounts:
     - name: local-app-volume
-      mountPath: /opt/app-data  
+      mountPath: /opt
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: local-app-pvc
+  labels:
+    app: myapp
 spec:
   resources:
     requests:
