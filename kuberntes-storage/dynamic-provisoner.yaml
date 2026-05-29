@@ -1,0 +1,41 @@
+# https://github.com/rancher/local-path-provisioner
+# kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.36/deploy/local-path-storage.yaml
+# default path is /opt/local-path-provisioner
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: local-app-pod
+  labels:
+    app: myapp
+spec:
+  volumes:
+  - name: local-app-volume
+    persistentVolumeClaim:
+      claimName: local-app-pvc
+  containers:
+  - name: local-app-pod
+    image: ubuntu:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    command:
+      - sleep 
+      - "3600"
+    volumeMounts:
+    - name: local-app-volume
+      mountPath: /opt/app-data  
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-app-pvc
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  volumeMode: Filesystem
+  storageClassName: local-path
+  accessModes:
+    - ReadWriteOnce
