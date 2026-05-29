@@ -20,5 +20,6 @@ spec:
       mountPath: /opt  
   volumes:
   - name: hostpath-volume
-      hostPath: /mnt/data-app-pod
+    hostPath: 
+      path: /mnt/data-app-pod
       type: DirectoryOrCreate
