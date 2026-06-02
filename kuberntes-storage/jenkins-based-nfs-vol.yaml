@@ -149,6 +149,26 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mypvc
+  labels:
+    app: jenkins-server
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+  nfs:
+    path: /data/podapp2
+    server: 172.31.10.131
