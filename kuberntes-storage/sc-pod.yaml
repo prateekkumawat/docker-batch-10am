@@ -35,6 +35,9 @@ spec:
     volumeMounts:
     - name: data-mount
       mountPath: /opt
+    command:
+      - sleep
+      - "3600"
   volumes:
   - name: data-mount
     persistentVolumeClaim:
