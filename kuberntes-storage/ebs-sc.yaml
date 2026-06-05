@@ -43,6 +43,9 @@ spec:
       limits:
         memory: "128Mi"
         cpu: "500m"
+    command:
+      - sleep
+      - "3600"    
     volumeMounts:
     - name: ebs-store-pod
       mountPath: /opt
