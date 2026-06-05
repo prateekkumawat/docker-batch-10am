@@ -11,3 +11,39 @@ parameters:
   type: gp2
   encrypted: "true"
 allowVolumeExpansion: true
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ebs-sc
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ebs-store-pod
+  labels:
+    app.kubernetes.io/name: ebs-store-pod
+spec:
+  volumes:
+  - name: ebs-store-pod
+    persistentVolumeClaim: 
+      claimName: ebs-store-pod
+  containers:
+  - name: ebs-store-pod
+    image: ubuntu:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    volumeMounts:
+    - name: ebs-store-pod
+      mountPath: /opt
+      
