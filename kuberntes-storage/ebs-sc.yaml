@@ -1,0 +1,13 @@
+# git repo ebs : https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/docs/install.md
+# kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.61"
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-sc
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  csi.storage.k8s.io/fstype: xfs
+  type: gp2
+  encrypted: "true"
+allowVolumeExpansion: true
