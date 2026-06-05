@@ -35,9 +35,9 @@ metadata:
     app: ebs-store-pod
 spec:
   volumes:
-  - name: ebs-store-pod
+  - name: ebs-store-data
     persistentVolumeClaim: 
-      claimName: ebs-store-pod
+      claimName: ebs-claim
   containers:
   - name: ebs-store-pod
     image: ubuntu:latest
@@ -49,6 +49,6 @@ spec:
       - sleep
       - "3600"    
     volumeMounts:
-    - name: ebs-store-pod
+    - name: ebs-store-data
       mountPath: /opt
       
