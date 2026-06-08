@@ -5,7 +5,7 @@ metadata:
   labels:
     app: testapp
 spec:
-  volumeMounts:
+  volumes:
   - name: prometheus-config
     configMap:
       name: test-conf
