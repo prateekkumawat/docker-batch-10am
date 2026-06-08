@@ -60,3 +60,15 @@ data:
           # The label name is added as a label `label_name=<label_value>` to any timeseries scraped from this config.
             labels:
               app: "prometheus"
+
+        static_configs:
+          - targets: ["172.31.0.91:9090"]
+          # The label name is added as a label `label_name=<label_value>` to any timeseries scraped from this config.
+            labels:
+              app: "java"   
+
+        static_configs:
+          - targets: ["172.31.32.95:9090"]
+          # The label name is added as a label `label_name=<label_value>` to any timeseries scraped from this config.
+            labels:
+              app: "python"         
